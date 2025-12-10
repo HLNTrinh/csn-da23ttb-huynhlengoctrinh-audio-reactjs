@@ -1,0 +1,51 @@
+.topics-container{
+  max-width:1356px;
+  padding: 30px;
+  color: white;
+  margin-top:-50px;
+}
+.now-playing1-bar {
+  width: 100%;
+  background: #131313;
+  padding: 12px 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #333;
+  z-index: 9999;
+}
+.topic-name{
+  font-size: 16px;
+  font-weight: 600;
+  textAlign: left;
+ 
+}
+.song-image {
+  width: 56px;
+  height: 56px;
+  border-radius:6px;
+  object-fit: cover;
+}
+.now-playing1-left{
+   display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.now-playing1-title {
+  font-size: 15px;
+  font-weight:700;
+  color: white;
+}
+.now-playing1-artist{
+  font-size: 13px;
+  color: #bbb;
+}
+.fixed-audio{
+   width: 80%;
+}
+
+
+

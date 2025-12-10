@@ -1,0 +1,115 @@
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+/* Modal nền mờ */
+.modal {
+  position: fixed;
+  inset: 0;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Form container */
+.modal form.spotify-form {
+  display: flex;
+  flex-direction: row; /* hàng ngang */
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  flex-wrap: wrap; /* responsive: xuống hàng khi nhỏ màn hình */
+}
+
+/* Input style */
+.modal form.spotify-form input {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  flex: 1 1 150px; /* responsive */
+}
+
+/* Button style */
+.modal form.spotify-form button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #5a4848ff;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal form.spotify-form button:hover {
+  background-color: #1ed760;
+  transform: scale(1.05);
+}
+.horizontal-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background-color: #1DB954;
+  border-radius: 4px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+  background: #7d128fff;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide {
+  display: flex;
+  width: max-content;
+  animation: slide 12s linear infinite;
+}

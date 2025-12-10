@@ -1,0 +1,49 @@
+.dashboard {
+  padding: 20px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stats-box {
+  background: white;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.box-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.stats-content {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.chart-placeholder {
+  width: 30%;
+  height: 220px;
+  background: #e6e6e6;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cost-table {
+  width: 70%;
+  border-collapse: collapse;
+}
+
+.cost-table th,
+.cost-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}

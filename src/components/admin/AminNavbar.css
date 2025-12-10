@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}
+
+.avatar {
+  position: relative;
+  cursor: pointer;
+}
+
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.dropdown {
+ position: absolute;
+  top: 50px;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 10;
+  min-width: 120px; /* đặt tối thiểu để rộng hơn avatar */
+  padding: 5px 0;   /* khoảng cách trên/dưới */
+  white-space: nowrap; /* tránh xuống dòng */
+}
+
+.logout-btn {
+  padding: 10px 20px;
+  width: 100%;
+  border: none;
+  background: white;
+  cursor: pointer;
+  text-align: left;
+}
+
+.logout-btn:hover {
+  background: #f0f0f0;
+}

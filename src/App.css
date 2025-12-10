@@ -1,0 +1,94 @@
+#root {
+  max-width: 1205px;
+  margin: 0 auto;
+  gap:2px;
+  margin-top:20px;
+}
+
+.logo {
+  width: 11em;
+  height:auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  background-color: black; 
+  
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #d76ed7aa);
+  filter: brightness(1.2); /* sáng hơn khi hover */
+  transition: filter 0.3s;
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #e30cf7aa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+
+.read-the-docs {
+  color: #888;
+}
+/* Layout */
+.app-container {
+  display: flex;
+  gap:5px;
+}
+.content {
+  margin-left: 300px; /* tránh bị sidebar che khuất */
+
+}
+
+/* Brand */
+.brand {
+  font-weight: bold;
+}
+
+/* Buttons */
+.library button {
+  width: 100%;
+  font-size:14px;
+  padding: 10px 15px;       /* padding trái/phải */
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  background-color: transparent; /* nền trong suốt */
+  color: white;
+  text-align: left;           /* căn chữ về bên trái */
+}
+
+
+.library button:nth-child(1) {  color: white; }
+.library button:nth-child(2),
+.library button:nth-child(4),
+.library button:nth-child(5) { color: white; }
+.library button:nth-child(3) {  color: White; }
+
+/* Hover effect */
+.library button:hover {
+  background-color: rgba(232, 15, 228, 0.1);
+}
+
+/* Khi bấm giữ nút */
+.library button:active {
+  background-color: rgba(59, 30, 187, 0.2); /* vệt sáng */
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.page {
+  font-size: 24px;
+}

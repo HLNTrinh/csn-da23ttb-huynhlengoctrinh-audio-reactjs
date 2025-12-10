@@ -1,0 +1,71 @@
+.topics-container {
+ max-width:1356px;
+ padding:30px
+  color: white;
+}
+
+.topics-title {
+ font-size: 28px;
+  font-weight: bold;
+  textAlign: "left";
+  margin-top: 0px;
+}
+
+.topics-more {
+  color: #ccc;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.topics-more:hover {
+  color: white;
+}
+
+/* GRID */
+.topics-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+/* CARD */
+.topic-card {
+  width: 195px;
+  height: 98px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.25s;
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+}
+
+.topic-card:hover {
+  transform: translateY(-5px);
+  opacity: 0.9;
+}
+
+.topic-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 195px;
+  height: 98px;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.topic-name {
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 2;
+}
+.topic-songs {
+  margin-top: 20px;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+}
