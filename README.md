@@ -4,7 +4,7 @@
 
 - **Họ tên:** Huỳnh Lê Ngọc Trinh
 - **Mã lớp:** DA23TTB
-- **Mssv:** 110123071
+- **Mssv:** 110123058
 - **Email:** sun478617@gmail.com
 - **SĐT:** 0347293114
 
