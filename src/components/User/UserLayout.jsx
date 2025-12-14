@@ -1,46 +1,82 @@
 import UserNavbar from "./UserNavbar";
 import UserSidebar from "./SidebarUser.jsx";
+import HomeSection from "./HomeSection/HomeSection.jsx";
+import Footer from "./footer/Footer.jsx";
+import NewRelease from "./NewRelease/NewRelease.jsx";
+import Trending from "./Trending.jsx"
 export default function UserLayout() {
   return (
     <div style={styles.container}>
-        <div style={styles.sidebar}>
-               <UserSidebar />
-              </div>
-              <div style={styles.mainContent}>
-                    <UserNavbar />
-                      
-                      </div>
-                      </div>
+      {/* SIDEBAR */}
+      <div style={styles.sidebar}>
+        <UserSidebar />
+      </div>
+
+      {/* MAIN + NAVBAR FULL MÀN HÌNH */}
+      <div style={styles.mainWrapper}>
+
+        {/* NAVBAR FULL WIDTH VÀ CỐ ĐỊNH */}
+        <div style={styles.navbar}>
+          <UserNavbar />
+        </div>
+
+        {/* PHẦN NỘI DUNG CUỘN */}
+        <div style={styles.content}>
+          <HomeSection />
+            <Trending/>
+          <NewRelease />
+        
+          <Footer />
+        </div>
+
+      </div>
+    </div>
   );
 }
- const styles = {
+
+const styles = {
   container: {
     display: "flex",
+    width: "500vw",
     height: "100vh",
-    background: "#f5f5f5",
+    
   },
+
   sidebar: {
     width: "240px",
     height: "100vh",
     position: "fixed",
-    top: 0,
     left: 0,
-    color: "#fff",
-    display: "flex",
-    flexDirection: "column",
-    boxSizing: "border-box",
-  },
-  mainContent: {
-    marginLeft: "240px", // để tránh bị sidebar che
-    position: "fixed",   // cố định mainContent
     top: 0,
-    right: 0,
-    bottom: 0,
-    overflowY: "auto",   // cuộn nếu nội dung dài
+    background: "#08041f",
+  },
+
+  mainWrapper: {
+    width: "calc(100% - 240px)",
+    height: "100vh",
     display: "flex",
     flexDirection: "column",
-    width: "calc(100% - 240px)", // full màn hình trừ sidebar
-    background: "#261861ff",
+    background: "#0d0734ff",
   },
- 
+
+  navbar: {
+    width: "calc(100% - 240px)",
+    height: "63px",          // TUỲ: chỉnh chiều cao navbar nếu muốn
+    position: "fixed",
+    top: 0,
+    zIndex: 20,
+  
+    background: "#0d0734ff",
+  },
+
+  content: {
+   width: "1356px",
+   padding: "0px 20px",
+  marginleft: "20px", /* vì có sidebar */
+  height: "100vh",
+  bottom:"20px",
+  top:20,
+  
+   
+  },
 };

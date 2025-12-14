@@ -1,0 +1,117 @@
+/* MAIN GRID */
+.playlist-page {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+  color: white;
+  font-family: sans-serif;
+}
+
+/* LEFT SIDE */
+.playlist-left {
+  width: 280px;
+}
+
+.playlist-cover {
+  width: 89%;
+  border-radius: 10px;
+}
+
+.playlist-meta {
+  margin-top: 10px;
+}
+
+.playlist-small {
+  color: #9ca3af;
+  margin: 0;
+}
+
+.playlist-title {
+  margin: 15px 0;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.playlist-artists {
+  color: #d1d5db;
+  margin-bottom: 25px;
+}
+
+.playlist-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.playall-btn {
+  background: #db0eeeff;
+  border: none;
+  padding: 12px 18px;
+  font-size:20px;
+   border-radius: 10px; /* bo góc vừa phải */
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+ 
+  align-items: center;        /* căn giữa theo chiều dọc */
+            /* khoảng cách giữa icon & chữ */
+}
+
+.download-btn {
+  background: #00d0ff;
+  border: none;
+  padding: 10px 20px; /* padding ngang vừa chữ, không quá rộng */
+  font-size: 18px;    /* chữ vừa phải, không quá to */
+  border-radius: 10px; /* bo góc vừa phải */
+  cursor: pointer;
+  color: white;       /* chữ màu trắng để nổi bật */
+  font-weight: 500;   /* chữ đậm vừa phải */
+}
+
+
+
+/* RIGHT SIDE TABLE */
+.playlist-right {
+  flex: 1;
+}
+
+.song-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.song-table thead th {
+  text-align: left;
+  padding-bottom: 14px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.song-row td {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #e5e7eb;
+}
+
+.song-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* SONG TITLE WITH IMAGE */
+.song-title-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.song-thumb {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.song-title {
+  font-size: 15px;
+  font-weight: 600;
+}

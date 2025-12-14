@@ -1,14 +1,14 @@
 import Topbar from './Topbar.jsx';
-import Sidebar from './Sidebar.jsx'; // bạn cần tạo Sidebar component
+import Sidebar from './Sidebar.jsx'; 
 import Artists from './Artists';
-import HomeSection from "./HomeSection/HomeSection.jsx";
-import TrendingSongs from './Trending.jsx';
+import HomeSection from "./User/HomeSection/HomeSection.jsx";
+import TrendingSongs from './User/Trending.jsx';
 import Topics from "./Topics";
-import Hometopic from "./hometopic/hometopic";
-import Footer from "./footer/Footer";
-import NewRelease from "./NewRelease/NewRelease.jsx";
-import Today from "./today/Today";
-import AudioPlayerProvider from "./today/AudioPlayerProvider";
+import Hometopic from "./User/hometopic/hometopic.jsx";
+import Footer from "./User/footer/Footer.jsx";
+import NewRelease from "./User/NewRelease/NewRelease.jsx";
+
+
 export default function TrangChu() {
   const styles = {
     container: {
@@ -31,8 +31,8 @@ export default function TrangChu() {
         <Hometopic />
         <TrendingSongs />
         <Topics />
-      <Today/>
-      <AudioPlayerProvider/>
+      
+     
         <NewRelease />
         <Footer />
       </div>

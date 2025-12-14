@@ -1,0 +1,69 @@
+.mini-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: #181818;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 15px 15px;
+  gap: 10px;
+  border-top: 1px solid #333;
+  z-index: 9999;  
+}
+
+.mini-img {
+  width: 58px;
+  height: 58px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.mini-info h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.mini-info p {
+  margin: 0;
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+/* --- Controls & bottom layout --- */
+.mini-bottom {
+   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+
+.mini-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 5px;
+}
+
+.icon-btn{
+    background: none;
+  border: none;
+
+  font-size: 26px; /* giống play-btn */
+  color: white;
+  line-height: 1;
+  color: white;
+ gap: 25px;
+}
+
+/* Seek bar */
+.seek-bar {
+  width: 60%;
+ max-width: 60%;
+ 
+ 
+}

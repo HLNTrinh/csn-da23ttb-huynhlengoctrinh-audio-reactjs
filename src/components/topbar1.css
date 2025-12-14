@@ -9,9 +9,7 @@
 .topbar {
   position: fixed;
   top: 0;
- 
   width: calc(100% - 240px);
-   
   height: 60px;
   display: flex;
   align-items: center;

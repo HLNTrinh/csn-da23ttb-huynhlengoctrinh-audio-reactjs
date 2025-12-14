@@ -5,7 +5,6 @@ import { MdAlbum } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
 import { RiAdminLine } from "react-icons/ri";
 import { MdLibraryMusic } from "react-icons/md";
-import { AiFillBell } from "react-icons/ai";
 import { PiMusicNotesPlusBold } from "react-icons/pi";
 import { MdOutlineStarOutline } from "react-icons/md";
 
@@ -16,6 +15,9 @@ export default function Sidebar() {
   const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
 
   const handleNavigate = (path, requireLogin = false) => {
+    console.log("isLoggedIn():", isLoggedIn());
+    console.log("requireLogin:", requireLogin);
+
     if (requireLogin && !isLoggedIn()) {
       alert("Bạn phải đăng nhập trước khi truy cập!");
       return;
@@ -30,6 +32,7 @@ export default function Sidebar() {
 
       {/* Menu chính */}
       <div style={menuStyle}>
+
         <button onClick={() => handleNavigate("/")} style={btnStyle}>
           <AiOutlineHome style={{ marginRight: 8 }} />
           Trang chủ
@@ -60,12 +63,11 @@ export default function Sidebar() {
           Top 100
         </button>
 
-        {/* ⭐ Trang cá nhân */}
-       
-
-        {/* ⭐ Admin - chỉ hiện khi role = "admin" */}
         {currentUser?.role === "admin" && (
-          <button onClick={() => handleNavigate("/admin", true)} style={{ ...btnStyle, color: "#ff8181" }}>
+          <button
+            onClick={() => handleNavigate("/admin", true)}
+            style={{ ...btnStyle, color: "#ff8181" }}
+          >
             <RiAdminLine style={{ marginRight: 8 }} />
             Quản trị viên
           </button>

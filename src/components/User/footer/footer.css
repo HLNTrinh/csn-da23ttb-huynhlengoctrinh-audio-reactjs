@@ -1,0 +1,60 @@
+.footer {
+  width: 100%;
+  background: #0d0734ff;
+  color: #ccc;
+  padding: 40px 70px;
+  font-family: sans-serif;
+}
+
+.footer-title {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  margin-bottom: 50px;
+}
+
+.partner-box {
+  width: 140px;
+  height: 65px;
+  background: #1b1327;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.partner-box img {
+  width: 95%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  color: #ccc;
+}
+
+.footer-block {
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+.footer-block h4 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.zing-logo {
+  width: 140px;
+  margin-right: 40px;
+}

@@ -1,10 +1,10 @@
 .user-navbar {
   height: 70px;
-  background: #0d0f33;
   color: white;
   display: flex;
-  padding: 0 20px;
-  border-bottom: 1px solid #2d2f52ff;
+  padding: 16px;
+  z-index: 999;
+ 
 }
 .menu-btn {
   font-size: 26px;
@@ -26,8 +26,8 @@
 }
 
 .avatar-img {
-  width: 58px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   cursor: pointer;
   

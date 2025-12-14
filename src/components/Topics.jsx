@@ -1,6 +1,7 @@
 import "./Topics.css";
 import { useState ,seRef} from "react";
 import { CgMusicSpeaker } from "react-icons/cg";
+import MiniPlayer from "/Users/huynh/music-app/src/components/User/MiniPlayer";
 export default function Topics() {
   const topics = [
     {
@@ -69,75 +70,58 @@ export default function Topics() {
     }
   ];
 
-   const [currentTopic, setCurrentTopic] = useState(null);
+    const [currentTopic, setCurrentTopic] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Chọn bài ngẫu nhiên
   const playRandomSong = (topic) => {
     const randomIndex = Math.floor(Math.random() * topic.songs.length);
     setCurrentTopic(topic);
     setCurrentIndex(randomIndex);
   };
 
-  // Lấy bài hiện tại
-  const currentSong =
-    currentTopic?.songs[currentIndex];
+  const currentSong = currentTopic?.songs[currentIndex];
 
-  // PREV
   const prevSong = () => {
     if (!currentTopic) return;
-    setCurrentIndex((prev) =>
+    setCurrentIndex(prev =>
       prev === 0 ? currentTopic.songs.length - 1 : prev - 1
     );
   };
+
   const nextSong = () => {
     if (!currentTopic) return;
-    setCurrentIndex((prev) =>
+    setCurrentIndex(prev =>
       prev === currentTopic.songs.length - 1 ? 0 : prev + 1
     );
   };
-   return (
+
+  return (
     <div>
-     <div className="topics-container">
-          <h2 className="topics-title">Các chủ đề</h2>
-      <div className="topics-grid">
-        {topics.map((t, i) => (
-          <div
-            key={i}
-            className="topic-card"
-            onClick={() => playRandomSong(t)}
-          >
-            <img src={t.img} className="topic-image" alt={t.name} />
-            <p className="topic-name">{t.name}</p>
-           
-          </div>
-        ))}
+      <div className="topics-container">
+        <h2 className="topics-title">Các chủ đề</h2>
+        <div className="topics-grid">
+          {topics.map((t, i) => (
+            <div
+              key={i}
+              className="topic-card"
+              onClick={() => playRandomSong(t)}
+            >
+              <img src={t.img} className="topic-image" alt={t.name} />
+              <p className="topic-name">{t.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      {/* PLAYER */}
+
+      {/* ✅ MiniPlayer */}
       {currentSong && (
-        <div className="now-playing1-bar">
-          <div className="now-playing1-left">
-            <img
-            src={currentSong.img}
-            className="song-image"
-            alt={currentSong.title}
-            />
-          <div> 
-            <p className="now-playing1-title">{currentSong.title}</p>
-            <p className="now-playing1-artist">{currentSong.artist}</p>
-            </div>
-            </div>
-          <audio
-            src={`/music/${currentSong.title}.mp3`}
-            autoPlay
-            controls
-            className="fixed-audio"
-            onEnded={nextSong} 
-          />
-           </div>
-             
+        <MiniPlayer
+          song={currentSong}
+          onPrev={prevSong}
+          onNext={nextSong}
+          onAddToLibrary={(s) => console.log("Add to library:", s)}
+        />
       )}
-    </div>
     </div>
   );
 }
