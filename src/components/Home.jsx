@@ -1,41 +1,74 @@
-import Topbar from './Topbar.jsx';
-import Sidebar from './Sidebar.jsx'; 
-import Artists from './Artists';
+import Topbar from "./Topbar.jsx";
+import Sidebar from "./Sidebar.jsx";
 import HomeSection from "./User/HomeSection/HomeSection.jsx";
-import TrendingSongs from './User/Trending.jsx';
+import TrendingSongs from "./User/Trending.jsx";
 import Topics from "./Topics";
-import Hometopic from "./User/hometopic/hometopic.jsx";
 import Footer from "./User/footer/Footer.jsx";
 import NewRelease from "./User/NewRelease/NewRelease.jsx";
-
-
-export default function TrangChu() {
-  const styles = {
-    container: {
-      display: "flex",
+const styles = {
+  container: {
+   display: "flex",
       width: "100vw",
       height: "100vh",
       boxSizing: "border-box",
-    },
-    
-  };
   
+  },
 
+  sidebar: {
+    width: "240px",
+    height: "100vh",
+    position: "fixed",
+    left: 0,
+    top: 0,
+   
+  },
+
+  mainWrapper: {
+    width: "calc(100% - 240px)",
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    background: "#0d0734ff",
+  },
+  navbar: {
+    width: "calc(100% - 240px)",
+    height: "70px",          // TUỲ: chỉnh chiều cao navbar nếu muốn
+    position: "sticky",
+    top: 0,
+    padding: "10px 10px",
+    zIndex: 10,
+  },
+ mainContent: {
+    marginLeft: "0px",
+  position: "fixed",
+  top: 0,
+  right: 0,
+  bottom: 0,
+  width: "calc(100% - 240px)",
+  background: "#0d0734ff",
+
+  overflowX: "hidden",  // ẩn cuộn ngang
+  scrollbarWidth: "none", // Firefox
+  }
+};
+export default function TrangChu() {
   return (
-    <div style={styles.container}>
-      {/* Sidebar bên trái */}
-      <Sidebar />
-      <div>
-        <Topbar />
+     <div style={styles.container}>
+          {/* SIDEBAR */}
+          <div style={styles.sidebar}>
+            <Sidebar />
+          </div>
+          <div style={styles.mainContent}>
+           <div style={styles.navbar}>
+            <Topbar />
+           </div>
         <HomeSection />
-        <Hometopic />
-        <TrendingSongs />
-        <Topics />
-      
-     
+         <Topics />
+        <TrendingSongs /> 
         <NewRelease />
         <Footer />
       </div>
+  
     </div>
   );
 }

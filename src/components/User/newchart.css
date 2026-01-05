@@ -1,5 +1,6 @@
+/* ================= CONTAINER ================= */
 .chart-container {
-  padding: 20px;
+  padding: 10px;
   color: white;
   width: 100%;
   box-sizing: border-box;
@@ -9,68 +10,196 @@
   font-size: 40px;
   font-weight: 800;
   margin-bottom: 20px;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.play-btn {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 6px 12px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.song-list {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.song-item {
+/* ================= HEADER ================= */
+.song-header {
   display: grid;
-  grid-template-columns: 60px 1.2fr 1fr 80px;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  
+  grid-template-columns: 3fr 2fr 1fr;
+  padding: 12px 16px;
+  color: #9ca3af;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.rank {
-  font-size: 28px;
-  font-weight: 700;
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-rank {
+  width: 40px;
   text-align: center;
 }
 
-.song-info {
+.header-song {
+  margin-left: 50px;
+}
+
+.header-album {
+  text-align: center;
+}
+
+.header-right {
+  text-align: right;
+}
+
+/* ================= LIST ================= */
+.song-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= SONG ITEM ================= */
+.song-item {
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+}
+
+.song-item:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+/* LEFT */
+.song-left {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
+/* RANK */
+.rank {
+  width: 40px;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    #16781dff,
+    #e0eef0ff,
+    #bd34a6ff,
+    #9d4edd
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* IMAGE */
 .song-img {
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   border-radius: 6px;
   object-fit: cover;
 }
 
+/* META */
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
 .meta-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  color:white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
 }
 
 .meta-artist {
-  opacity: 0.7;
-  font-size: 14px;
-   color:white;
+  font-size: 12px;
+  opacity: 0.8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
 }
 
-.album {
-  font-size: 14px;
-  opacity: 0.7;
+/* ALBUM */
+.song-album1 {
+  text-align: center;
+  font-size: 13px;
+  color: #ebe3e3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 12px;
 }
 
-.duration {
-  text-align: right;
-  opacity: 0.85;
+/* RIGHT */
+.song-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ================= SCROLL ================= */
+.mainContent::-webkit-scrollbar {
+  display: none;
+}
+
+.mainContent {
+  scrollbar-width: none;
+}
+.heart-btn-row {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #aaa;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.2s ease;
+}
+
+/* hover row → hiện tim */
+.song-row:hover .heart-btn-row {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* đã thích → hiện luôn */
+
+
+.heart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #aaa;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.2s ease;
+}
+
+/* hover cả dòng → hiện tim */
+.song-item:hover .heart-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* đang phát HOẶC đã thích → hiện luôn */
+.heart-btn.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* hover riêng tim */
+.heart-btn:hover {
+  transform: scale(1.2);
 }

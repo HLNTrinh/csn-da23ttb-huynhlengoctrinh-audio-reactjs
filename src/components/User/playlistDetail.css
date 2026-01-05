@@ -1,4 +1,4 @@
-/* MAIN GRID */
+/* ================= PLAYLIST LAYOUT ================= */
 .playlist-page {
   display: flex;
   padding: 40px;
@@ -7,111 +7,183 @@
   font-family: sans-serif;
 }
 
-/* LEFT SIDE */
+/* ================= LEFT ================= */
 .playlist-left {
   width: 280px;
+  flex-shrink: 0;
 }
 
 .playlist-cover {
-  width: 89%;
+  width: 100%;
   border-radius: 10px;
 }
 
 .playlist-meta {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .playlist-small {
   color: #9ca3af;
-  margin: 0;
+  font-size: 13px;
 }
 
 .playlist-title {
-  margin: 15px 0;
-  font-size: 25px;
+  margin: 10px 0;
+  font-size: 26px;
   font-weight: 700;
 }
 
 .playlist-artists {
   color: #d1d5db;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .playlist-actions {
   display: flex;
-  gap: 12px;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
 }
 
+/* ================= BUTTONS ================= */
 .playall-btn {
-  background: #db0eeeff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff4fd8, #a64dff);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
   border: none;
-  padding: 12px 18px;
-  font-size:20px;
-   border-radius: 10px; /* bo góc vừa phải */
   cursor: pointer;
-  color: white;
-  font-weight: 500;
- 
-  align-items: center;        /* căn giữa theo chiều dọc */
-            /* khoảng cách giữa icon & chữ */
+  transition: all 0.25s ease;
 }
 
-.download-btn {
-  background: #00d0ff;
-  border: none;
-  padding: 10px 20px; /* padding ngang vừa chữ, không quá rộng */
-  font-size: 18px;    /* chữ vừa phải, không quá to */
-  border-radius: 10px; /* bo góc vừa phải */
-  cursor: pointer;
-  color: white;       /* chữ màu trắng để nổi bật */
-  font-weight: 500;   /* chữ đậm vừa phải */
+.playall-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 22px rgba(255, 79, 216, 0.45);
 }
 
+.icon-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
 
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
 
-/* RIGHT SIDE TABLE */
+/* ================= RIGHT ================= */
 .playlist-right {
   flex: 1;
 }
 
-.song-table {
+/* ================= TABLE ================= */
+.song1-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
 
-.song-table thead th {
-  text-align: left;
-  padding-bottom: 14px;
+.song1-table thead th {
+  padding: 10px 0;
   color: #9ca3af;
   font-weight: 500;
+  text-align: left;
+  font-size: 14px;
 }
 
-.song-row td {
+.song1-table thead th:last-child {
+  text-align: right;
+}
+
+/* ================= ROW ================= */
+.song-row1 {
+  transition: background 0.2s ease;
+}
+
+.song-row1:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.song-row1 td {
   padding: 14px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  color: #e5e7eb;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  vertical-align: middle;
 }
 
-.song-row:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* SONG TITLE WITH IMAGE */
-.song-title-cell {
+/* ================= SONG TITLE ================= */
+.song-title-cell1 {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.song-thumb {
-  width: 45px;
-  height: 45px;
+.song-thumb1 {
+  width: 46px;
+  height: 46px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
-.song-title {
+.song-title1 {
   font-size: 15px;
   font-weight: 600;
+  color: white;
+}
+
+/* ================= TIME + HEART ================= */
+.time-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.song-time {
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* ================= HEART ================= */
+.heart-btn-row {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #aaa;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.2s ease;
+}
+
+/* hover row → hiện tim */
+.song-row1:hover .heart-btn-row {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* đã thích → hiện luôn */
+.heart-btn-row.active {
+  opacity: 1;
+  color: #ff4f6d;
+}
+
+/* hover tim */
+.heart-btn-row:hover {
+  transform: scale(1.2);
 }

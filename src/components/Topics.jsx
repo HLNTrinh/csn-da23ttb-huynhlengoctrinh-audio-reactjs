@@ -6,16 +6,46 @@ export default function Topics() {
   const topics = [
     {
       name: "Pop",
-      img: "public/image/pop.png",
-      songs: [{img: "https://image-cdn.nct.vn/song/2024/10/18/1/8/a/e/1729211353297_300.jpg", title: "APT."}]
+      img: "/image/pop.png",
+      songs: [
+        {
+          title: "APT.",
+          artist: "ROSÉ & Bruno Mars",
+          img: "https://image-cdn.nct.vn/song/2024/10/18/1/8/a/e/1729211353297_300.jpg",
+          audio: "public/music/APT..mp3",
+        },
+        {
+          title: "You & Me",
+    artist: "JENNIE",
+    audio: "/music/You & Me.mp3",
+    img: "https://image-cdn.nct.vn/song/2023/10/06/2/5/3/5/1696563949492_300.jpg",
+        },
+        {
+          title: "The Fate of Ophelia",
+    artist: "Taylor Swift, The Chainsmokers",
+    img: "https://image-cdn.nct.vn/song/2025/11/28/m/Z/m/l/1764309023569_300.jpg",
+    audio: "/music/The Fate of Ophelia.mp3",
+        }
+      ],
     },
+
     {
       name: "Bolero",
-      img: "public/image/bolero.png",
-      songs: [{
-        img:"https://image-cdn.nct.vn/song/2013/11/06/c/c/a/8/1383712945919_300.jpg",
-        title:"Sông Quê",
-      }]
+      img: "/image/bolero.png",
+      songs: [
+        {
+          title: "Sông Quê",
+          artist: "Phi Nhung",
+          img: "https://image-cdn.nct.vn/song/2013/11/06/c/c/a/8/1383712945919_300.jpg",
+          audio: "/music/songque.mp3",
+        },
+        {
+          title: "Duyên Phận",
+          artist: "Như Quỳnh",
+          img: "https://image-cdn.nct.vn/song/2014/02/20/6/2/7/9/1392886897606_300.jpg",
+          audio: "/music/duyenphan.mp3",
+        },
+      ],
     },
     {
       name: "TikTok",
@@ -30,7 +60,13 @@ export default function Topics() {
     {
       name: "C-Pop",
       img: "public/image/CPop.png",
-      songs: ["Cpop Song A", "Cpop Song B"]
+      songs: [
+        {
+           img: "https://image-cdn.nct.vn/song/2025/11/26/t/T/S/X/1764125550570_300.jpg",
+            audio: "/music/画圈.mp3",
+        },
+        
+      ]
     },
     {
       name: "Christmas",
@@ -66,7 +102,12 @@ export default function Topics() {
     {
       name: "K-Pop",
       img: "public/image/kpop.png",
-      songs: ["Blackpink", "BTS"]
+      songs: [
+        { audio: "/music/Solo.mp3",
+    img: "https://image-cdn.nct.vn/song/2018/11/12/7/f/3/1/1542015331222_300.jpg"},
+    { audio: "/music/Solitary.mp3",
+      img: "https://image-cdn.nct.vn/song/2025/11/13/j/s/U/L/1763048248352_300.jpg"},
+      ]
     }
   ];
 

@@ -1,49 +1,149 @@
+/* ================= BASE ================= */
 .dashboard {
   padding: 20px;
+  background: #f6f7fb;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
+/* ================= CARD ================= */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card {
+  padding: 18px;
+  border-radius: 16px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card svg {
+  font-size: 22px;
+  opacity: 0.9;
+}
+
+.card span {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.card p {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* ================= CHART ================= */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-.stats-box {
-  background: white;
-  margin-top: 30px;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.chart-box {
+  background: #fff;
+  padding: 16px 16px 12px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
 }
 
-.box-title {
-  font-size: 20px;
-  font-weight: bold;
+.chart-box h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
-.stats-content {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
+/* Tooltip font */
+.recharts-tooltip-wrapper {
+  font-size: 13px;
 }
 
-.chart-placeholder {
-  width: 30%;
-  height: 220px;
-  background: #e6e6e6;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.cost-table {
-  width: 70%;
-  border-collapse: collapse;
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 12px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .card p {
+    font-size: 22px;
+  }
+
+  .chart-box {
+    padding: 12px;
+  }
+
+  .chart-box h4 {
+    font-size: 14px;
+  }
+
+  /* Fix chiều cao chart */
+  .recharts-responsive-container {
+    height: 240px !important;
+  }
 }
 
-.cost-table th,
-.cost-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 480px) {
+  .card span {
+    font-size: 12px;
+  }
+
+  .card p {
+    font-size: 20px;
+  }
+
+  .chart-box h4 {
+    font-size: 13px;
+  }
+}
+/* ================= CARD COLORS ================= */
+.card.cyan {
+  background: linear-gradient(135deg, #4fd1c5, #38b2ac);
+}
+
+.card.indigo {
+  background: linear-gradient(135deg, #667eea, #5a67d8);
+}
+
+.card.green {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+}
+
+.card.pink {
+  background: linear-gradient(135deg, #ed64a6, #d53f8c);
+}
+
+/* Icon đẹp hơn */
+.card svg {
+  font-size: 24px;
+  margin-bottom: 4px;
+  opacity: 0.95;
+}
+.name{
+  font-size:16px;
 }

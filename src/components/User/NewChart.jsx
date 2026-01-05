@@ -1,178 +1,308 @@
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import "./newchart.css";
 import SidebarUser from "./SidebarUser";
 import UserNavbar from "./UserNavbar";
+import MiniPlayer from "./MiniPlayer";
+import { GoHeart, GoHeartFill } from "react-icons/go";
 
+/* ================= HELPERS ================= */
+const getLibraryKey = (user) =>
+  user ? `library_${user.id || user.username}` : null;
+
+const getNotifyKey = (user) =>
+  user ? `notifications_${user.id || user.username}` : null;
+
+/* ================= SONG DATA ================= */
 const songs = [
   {
-    rank: 1,
-    change: 62,
+    id: 1,
     img: "https://image-cdn.nct.vn/song/2025/12/08/V/Y/X/f/1765165771131_300.jpg",
     title: "Chờ Anh Về",
-    artists: "ANH TRAI 'SAY HI', B Ray, AMEE",
+    artist: "ANH TRAI 'SAY HI', B Ray, AMEE",
     album: "ANH TRAI 'SAY HI' 2025, TẬP 13",
     duration: "03:34",
-    audio: "/audios/cho-anh-ve.mp3",
+    audio: "/music/CHỜ ANH VỀ.mp3",
   },
   {
-    rank: 2,
-    img: "https://image-cdn.nct.vn/song/2025/11/28/9/6/7/6/1764318421000_300.jpg",
-    title: "Anh Đã Vừa Lòng Chưa?",
-    artists: "Phí Phương Anh, RIN9, DREAMEr",
-    album: "Anh đã vừa lòng chưa? (Single)",
+    id: 2,
+    img: "/convers/6.jpg",
+    title: "Không Buông",
+    artist: "Hngle, Ari",
+    album: "Không Buông (Single)",
     duration: "03:54",
-    audio: "/audios/vua-long-chua.mp3",
+    audio: "/music/Không Buông.mp3",
   },
   {
-    rank: 3,
-    img: "https://image-cdn.nct.vn/song/2025/12/08/V/Y/X/f/1765165771131_300.jpg",
-    title: "GIẤC MỘNG VỠ",
-    artists: "ANH TRAI 'SAY HI', Ryn Lee",
-    album: "ANH TRAI 'SAY HI' 2025, TẬP 13",
+    id: 3,
+    img: "https://image-cdn.nct.vn/song/2025/11/26/Z/U/0/5/1764129218488_300.jpg",
+    title: "ĐỂ THƯƠNG ĐỂ CHO NHAU",
+    artist: "Otis, Yeolan",
+    album: "ĐỂ THƯƠNG ĐỂ CHO NHAU (Single)",
     duration: "04:28",
-    audio: "/audios/bach-tuong-vi.mp3",
+    audio: "/music/ĐỂ THƯƠNG ĐỂ CHO NHAU.mp3",
   },
    {
-    rank: 4,
+    id:4,
     img: "https://image-cdn.nct.vn/song/2025/12/07/3/5/0/8/1765089647304_300.jpg",
     title: "Sẽ Qua Sớm Thôi",
-    artists: "CODYNAMVO",
-    album: "Sẽ Qua Sớm Thôi(Single)",
+    artist: "CODYNAMVO",
+    album: "Sẽ Qua Sớm Thôi (Single)",
     duration: "04:19",
-    audio: "/audios/bach-tuong-vi.mp3",
+    audio: "/music/Sẽ Qua Sớm Thôi.mp3",
+  },
+  {
+    id:5,
+     img: "https://image-cdn.nct.vn/song/2025/11/28/m/Z/m/l/1764309023569_300.jpg", 
+     title: "The Fate of Ophelia",
+      artist: "Taylor Swift, The Chainsmokers",
+      album: "The Fate of Ophelia (Single)",
+      duration: "03:43",
+      audio:"/music/The Fate of Ophelia.mp3",
+  },
+  { id:6,
+    title: "NOT CUTE ANYMORE", artist: "ILLIT" ,
+    img:"https://image-cdn.nct.vn/song/2025/11/24/g/I/I/y/1763980894698_300.jpg",
+     album: "NOT CUTE ANYMORE (Single)",
+    duration: "03:40",
+    audio:"/music/NOT CUTE ANYMORE.mp3",
+  },
+  { id:7,
+    img:"https://image-cdn.nct.vn/song/2024/11/21/5/9/b/6/1732159976457_300.jpg",
+    title: "Pin Dự Phòng",
+    artist: "Dương Domic,Lou Hoàng", 
+    album: "Dương Domic (Single)",
+      duration: "03:25",
+      audio:"/music/Pin Dự Phòng.mp3",
+  },
+  { id:8,
+    img: "https://image-cdn.nct.vn/song/2025/11/25/1/b/e/5/1764049685571_300.jpg", title: "Anh Sẽ Quên Được Em", artist: "QuocKiet",
+    album: "Anh Sẽ Quên Được Em (Single)",
+      duration: "03:40",
+      audio:"/music/Anh Sẽ Quên Được Em.mp3",
+  },
+   {id:9,
+    img: "https://image-cdn.nct.vn/song/2020/08/06/6/0/8/0/1596715581082_300.jpg", title:"Phải Là Yêu", artist:"HIEUTHUHAI, HURRYKNG", audio:"/music/Phải Là Yêu.mp3",
+    album: "Phải Là Yêu (Single)",
+      duration: "05:23",
+  },
+
+  {id:10,
+
+     img: "https://image-cdn.nct.vn/song/2025/11/21/C/Y/j/k/1763719323352_300.jpg", title:"QUAN TRỌNG KHÔNG?", artist:"choi", audio:"/music/QUAN TRỌNG KHÔNG_.mp3",
+       album: "Quan trọng không(Single)",
+      duration: "04:20",
   },
 ];
 
+/* ================= COMPONENT ================= */
 export default function NewChart() {
-  const [currentIndex, setCurrentIndex] = useState(null);
+  const [chartSongs, setChartSongs] = useState([]);
   const [currentSong, setCurrentSong] = useState(null);
-  const audioRef = useRef(new Audio());
+  const [currentIndex, setCurrentIndex] = useState(null);
 
-  const handlePlay = (song, index) => {
-    // Nếu click đúng bài đang phát → pause/play
-    if (currentIndex === index) {
-      audioRef.current.paused ? audioRef.current.play() : audioRef.current.pause();
-      return;
-    }
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  const libraryKey = getLibraryKey(user);
+  const notifyKey = getNotifyKey(user);
 
-    // Đổi bài mới
-    audioRef.current.src = song.audio;
-    audioRef.current.play();
-    setCurrentIndex(index);
+  const [library, setLibrary] = useState([]);
+
+  const isLoved = (song) =>
+    library.some((s) => s.audio === song.audio);
+
+  /* ===== INIT CHART ===== */
+  useEffect(() => {
+    const init = songs.map((s, i) => ({
+      ...s,
+      rank: i + 1,
+    }));
+    setChartSongs(init);
+  }, []);
+
+  /* ===== SYNC LIBRARY REALTIME ===== */
+  useEffect(() => {
+    if (!libraryKey) return;
+
+    const syncLibrary = () => {
+      const data = JSON.parse(localStorage.getItem(libraryKey)) || [];
+      setLibrary(data);
+    };
+
+    syncLibrary();
+    window.addEventListener("library-updated", syncLibrary);
+    return () =>
+      window.removeEventListener("library-updated", syncLibrary);
+  }, [libraryKey]);
+
+  /* ===== PLAY ===== */
+  const handlePlay = (song) => {
     setCurrentSong(song);
+    setCurrentIndex(chartSongs.findIndex((s) => s.id === song.id));
   };
 
+  const playNext = () => {
+    if (currentIndex === null) return;
+    const next = (currentIndex + 1) % chartSongs.length;
+    setCurrentIndex(next);
+    setCurrentSong(chartSongs[next]);
+  };
+
+  const playPrev = () => {
+    if (currentIndex === null) return;
+    const prev =
+      (currentIndex - 1 + chartSongs.length) % chartSongs.length;
+    setCurrentIndex(prev);
+    setCurrentSong(chartSongs[prev]);
+  };
+
+  /* ===== ❤️ + 🔔 TOGGLE ===== */
+  const toggleLibrary = (song, e) => {
+    e.stopPropagation();
+    if (!user) return alert("Bạn cần đăng nhập");
+
+    const exists = isLoved(song);
+    let updatedLib = [];
+
+    const notifications = JSON.parse(
+      localStorage.getItem(notifyKey) || "[]"
+    );
+
+    if (exists) {
+      updatedLib = library.filter((s) => s.audio !== song.audio);
+      notifications.unshift({
+        id: Date.now(),
+        type: "remove",
+        text: `${song.title} đã bị xóa khỏi thư viện`,
+        time: new Date().toLocaleTimeString(),
+      });
+    } else {
+      updatedLib = [...library, song];
+      notifications.unshift({
+        id: Date.now(),
+        type: "add",
+        text: `${song.title} đã được thêm vào thư viện`,
+        time: new Date().toLocaleTimeString(),
+      });
+    }
+
+    setLibrary(updatedLib);
+    localStorage.setItem(libraryKey, JSON.stringify(updatedLib));
+    localStorage.setItem(notifyKey, JSON.stringify(notifications));
+
+    window.dispatchEvent(new Event("library-updated"));
+    window.dispatchEvent(new Event("notificationUpdated"));
+  };
+
+  /* ================= UI ================= */
   return (
-    <div style={styles.layout}>
-
-      {/* SIDEBAR */}
-      <div style={styles.sidebar}>
-        <SidebarUser />
-      </div>
-
-      {/* MAIN */}
-      <div style={styles.main}>
-
-        {/* NAVBAR */}
+    <div style={styles.container}>
+  <div style={styles.sidebar}>
+         <SidebarUser />
+       </div>
+      <div style={styles.mainContent}>
         <div style={styles.navbar}>
-          <UserNavbar />
-        </div>
+                 <UserNavbar />
+               </div>
+        <div className="chart-container">
+          <h1 className="chart-title">BXH Nhạc Mới</h1>
+{/* ===== HEADER ===== */}
+<div className="song-header">
+  <div className="header-left">
+    <span className="header-rank">#</span>
+    <span className="header-song">Bài hát</span>
+  </div>
 
-        {/* CONTENT */}
-        <div style={styles.content}>
-          <div className="chart-container">
-            <h1 className="chart-title">
-              BXH Nhạc Mới <span className="play-btn">▶</span>
-            </h1>
+  <div className="header-album">Album</div>
 
-            <div className="song-list">
-              {songs.map((song, index) => (
+  <div className="header-right">
+    <span className="header-time">Thời gian</span>
+  </div>
+</div>
+
+          <div className="song-list">
+            {chartSongs.map((song) => {
+              const active = currentSong?.id === song.id;
+
+              return (
                 <div
-                  className={`song-item ${currentIndex === index ? "playing" : ""}`}
-                  key={index}
-                  onClick={() => handlePlay(song, index)}
+                  key={song.id}
+                  className={`song-item ${active ? "playing" : ""}`}
+                  onClick={() => handlePlay(song)}
                 >
-                  <div className="rank">{song.rank}</div>
-
-                  <div className="song-info">
-                    <img src={song.img} alt="" className="song-img" />
+                  <div className="song-left">
+                    <div className="rank">{song.rank}</div>
+                    <img src={song.img} className="song-img" />
                     <div className="meta">
                       <div className="meta-title">{song.title}</div>
-                      <div className="meta-artist">{song.artists}</div>
+                      <div className="meta-artist">{song.artist}</div>
                     </div>
                   </div>
 
-                  <div className="album">{song.album}</div>
-                  <div className="duration">{song.duration}</div>
-                </div>
-              ))}
-            </div>
+                  <div className="song-album1">{song.album}</div>
 
+                  <div className="song-right">
+                    <button
+                      className={`heart-btn ${
+                        active || isLoved(song) ? "show" : ""
+                      }`}
+                      onClick={(e) => toggleLibrary(song, e)}
+                    >
+                      {isLoved(song) ? (
+                        <GoHeartFill color="#ff4f6d" />
+                      ) : (
+                        <GoHeart />
+                      )}
+                    </button>
+
+                    <span className="duration">{song.duration}</span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
-
-        {/* PLAYER BAR Ở CUỐI TRANG */}
-        {currentSong && (
-          <div className="player-bar">
-            <div className="player-left">
-              <img src={currentSong.img} className="player-img" />
-              <div>
-                <p className="player-title">{currentSong.title}</p>
-                <p className="player-artist">{currentSong.artists}</p>
-              </div>
-            </div>
-
-            <audio ref={audioRef} controls className="audio-full">
-              <source src={currentSong.audio} type="audio/mp3" />
-            </audio>
-          </div>
-        )}
-
       </div>
+
+      {currentSong && (
+        <MiniPlayer
+          song={currentSong}
+          onNext={playNext}
+          onPrev={playPrev}
+        />
+      )}
     </div>
   );
 }
 
-// LAYOUT FIXED
+/* ================= STYLES ================= */
 const styles = {
-  layout: {
+ container: {
     display: "flex",
-    width: "100vw",
     height: "100vh",
-    background: "#0d0734",
-    color: "white",
   },
-
   sidebar: {
     width: "240px",
-    height: "100vh",
     position: "fixed",
     left: 0,
     top: 0,
-    background: "#08041f",
+    bottom: 0,
   },
-
-  main: {
-    marginLeft: "20px", 
-    width: "calc(100% - 240px)",
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-  },
-
-  navbar: {
-    height: "63px",
+  mainContent: {
     position: "fixed",
     top: 0,
+    right: 0,
+    bottom: 0,
     width: "calc(100% - 240px)",
-    zIndex: 20,
-    background: "#0d0734",
+    background: "#0d0734ff",
+    overflowY: "scroll",
+    overflowX: "hidden",
+    scrollbarWidth: "none",
   },
-
-  content: {
-    marginTop: "0px",
-    flex: 1,
-    overflowY: "auto",
-    padding: "20px",
+  navbar: {
+    width: "calc(100% - 240px)",
+    height: "70px",
+    position: "sticky",
+    top: 0,
+    padding: "10px",
+    zIndex: 10,
   },
 };

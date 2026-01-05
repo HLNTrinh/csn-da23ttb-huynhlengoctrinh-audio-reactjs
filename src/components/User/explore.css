@@ -1,19 +1,28 @@
+/* ===== CONTAINER ===== */
 .explore-container {
   padding: 20px 30px;
-  margin-left: 20px; /* vì có sidebar */
+  margin-left: 10px;
   color: #fff;
   min-height: 100vh;
   font-family: sans-serif;
 }
 
+/* ===== SECTION ===== */
 .explore-section {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
+/* ===== HEADER ===== */
 .explore-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+
+  margin-top: 0;
   margin-bottom: 10px;
 }
 
@@ -22,6 +31,7 @@
   font-weight: 700;
 }
 
+/* ===== MORE BUTTON ===== */
 .more-btn {
   background: none;
   border: none;
@@ -34,18 +44,28 @@
   color: #fff;
 }
 
+/* ===== ROW ===== */
 .explore-row {
   display: flex;
   gap: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  overflow-x: auto;
 }
 
+.explore-row::-webkit-scrollbar {
+  display: none;
+}
 
-
+/* ===== CARD ===== */
 .music-card {
   width: 200px;
   cursor: pointer;
   flex-shrink: 0;
+}
+
+/* ===== IMAGE ===== */
+.card-img-wrapper {
+  position: relative;
 }
 
 .music-card img {
@@ -56,27 +76,23 @@
   transition: transform 0.25s ease-in-out;
 }
 
-.music-card img:hover {
+.music-card:hover img {
   transform: scale(1.05);
+}
+
+/* 👉 Hover card → hiện tim */
+.music-card:hover .heart-btn {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .title {
   font-size: 15px;
-  margin-top: 10px;
+  margin-top: 6px;
   font-weight: 600;
 }
 
 .artist {
-  font-size: 10px;
+  font-size: 12px;
   color: #aaa;
-}
-
-/* phần bên phải (navbar + nội dung) */
-
-
-.navbar-sticky {
-  position: sticky;
-  top: 0;
-  
-  background: #0d0734ff; /* nền để che phía sau */
 }

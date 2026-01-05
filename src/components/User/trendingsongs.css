@@ -4,33 +4,24 @@
   color: white;
 }
 
-.suggest-header {
+
+ .suggest-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
+  margin-bottom: 15px;
 }
-
 .suggest-title {
   font-size: 28px;
   font-weight: bold;
   textAlign: "left";
-  margin-top: -40px; 
-}
-
-.refresh-btn {
-  background: #4a474bff;
-  border: none;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 15px;
-  transition: 0.2s;
+  margin-top: -30px; 
 }
 
 
-.refresh-btn:hover {
+
+
+.refresh1-btn:hover {
   opacity: 0.8;
    background: #bf25f2ff;
 }
@@ -135,4 +126,45 @@
 .audio-full {
   width: 80%;
 }
+.refresh1-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 
+  background: #4a474bff;
+  border: none;
+  color: white;
+
+  padding: 8px 18px;
+  border-radius: 999px;
+
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+
+  transition: all 0.25s ease;
+}
+
+.refresh1-btn:hover {
+  background: #bf25f2ff;
+  transform: rotate(0.5deg) scale(1.05);
+}
+
+.suggest-uploader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.uploader-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.uploader-name {
+  font-size: 12px;
+  color: #aaa;
+}

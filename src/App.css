@@ -1,94 +1,100 @@
+/* ================= RESET & ROOT ================= */
 #root {
-  max-width: 1205px;
+  max-width: 1280px;
   margin: 0 auto;
-  gap:2px;
-  margin-top:20px;
+  padding: 0 clamp(10px, 3vw, 16px);
+  margin-top: 16px;
 }
 
-.logo {
-  width: 11em;
-  height:auto;
-  object-fit: contain;
-  flex-shrink: 0;
-  background-color: black; 
-  
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #d76ed7aa);
-  filter: brightness(1.2); /* sáng hơn khi hover */
-  transition: filter 0.3s;
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #e30cf7aa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-
-.read-the-docs {
-  color: #888;
-}
-/* Layout */
+/* ================= LAYOUT ================= */
 .app-container {
   display: flex;
-  gap:5px;
+  gap: 12px;
+  width: 100%;
+  align-items: flex-start;
 }
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: clamp(220px, 22vw, 260px);
+  flex-shrink: 0;
+}
+
+/* ===== Content ===== */
 .content {
-  margin-left: 300px; /* tránh bị sidebar che khuất */
-
+  flex: 1;
+  min-width: 0;
 }
 
-/* Brand */
-.brand {
-  font-weight: bold;
+/* ================= LOGO ================= */
+.logo {
+  width: clamp(110px, 16vw, 160px);
+  object-fit: contain;
 }
 
-/* Buttons */
+/* ================= LIBRARY BUTTON ================= */
 .library button {
   width: 100%;
-  font-size:14px;
-  padding: 10px 15px;       /* padding trái/phải */
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  background-color: transparent; /* nền trong suốt */
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  background: transparent;
   color: white;
-  text-align: left;           /* căn chữ về bên trái */
+  text-align: left;
+  border: none;
 }
 
-
-.library button:nth-child(1) {  color: white; }
-.library button:nth-child(2),
-.library button:nth-child(4),
-.library button:nth-child(5) { color: white; }
-.library button:nth-child(3) {  color: White; }
-
-/* Hover effect */
 .library button:hover {
-  background-color: rgba(232, 15, 228, 0.1);
+  background-color: rgba(232, 15, 228, 0.12);
 }
 
-/* Khi bấm giữ nút */
-.library button:active {
-  background-color: rgba(59, 30, 187, 0.2); /* vệt sáng */
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
-}
+/* ================= PAGE TEXT ================= */
 .page {
-  font-size: 24px;
+  font-size: 22px;
+}
+
+/* ================= CATEGORY GRID (QUAN TRỌNG) ================= */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+/* ================================================= */
+/* ================= RESPONSIVE ==================== */
+/* ================================================= */
+
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+  }
+
+  .library button {
+    white-space: nowrap;
+    text-align: center;
+  }
+}
+
+/* ===== Small Mobile ===== */
+@media (max-width: 480px) {
+  .page {
+    font-size: 18px;
+  }
 }

@@ -1,25 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { FiTrendingUp } from "react-icons/fi";
-import { MdAlbum } from "react-icons/md";
-import { FaUserCircle } from "react-icons/fa";
-import { RiAdminLine } from "react-icons/ri";
-import { MdLibraryMusic } from "react-icons/md";
+import { MdAlbum, MdLibraryMusic, MdOutlineStarOutline } from "react-icons/md";
 import { PiMusicNotesPlusBold } from "react-icons/pi";
-import { MdOutlineStarOutline } from "react-icons/md";
 
-import { isLoggedIn } from "./auth"; // kiểm tra đăng nhập
+// ✅ Hàm kiểm tra đăng nhập
+const isLoggedIn = () => {
+  return !!localStorage.getItem("user"); // hoặc "user"
+};
 
 export default function Sidebar() {
   const navigate = useNavigate();
-  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
 
   const handleNavigate = (path, requireLogin = false) => {
-    console.log("isLoggedIn():", isLoggedIn());
-    console.log("requireLogin:", requireLogin);
-
     if (requireLogin && !isLoggedIn()) {
       alert("Bạn phải đăng nhập trước khi truy cập!");
+      navigate("/login"); // chuyển sang trang login
       return;
     }
     navigate(path);
@@ -27,25 +23,17 @@ export default function Sidebar() {
 
   return (
     <aside style={sidebarStyle}>
-      {/* Logo */}
       <div className="sidebar-logo">MUSIC</div>
 
-      {/* Menu chính */}
       <div style={menuStyle}>
-
         <button onClick={() => handleNavigate("/")} style={btnStyle}>
           <AiOutlineHome style={{ marginRight: 8 }} />
-          Trang chủ
+          Home
         </button>
 
         <button onClick={() => handleNavigate("/library/songs", true)} style={btnStyle}>
           <FiTrendingUp style={{ marginRight: 8 }} />
           Khám phá
-        </button>
-
-        <button onClick={() => handleNavigate("/library/albums", true)} style={btnStyle}>
-          <MdAlbum style={{ marginRight: 8 }} />
-          Album
         </button>
 
         <button onClick={() => handleNavigate("/library/love", true)} style={btnStyle}>
@@ -62,16 +50,6 @@ export default function Sidebar() {
           <MdOutlineStarOutline style={{ marginRight: 8 }} />
           Top 100
         </button>
-
-        {currentUser?.role === "admin" && (
-          <button
-            onClick={() => handleNavigate("/admin", true)}
-            style={{ ...btnStyle, color: "#ff8181" }}
-          >
-            <RiAdminLine style={{ marginRight: 8 }} />
-            Quản trị viên
-          </button>
-        )}
       </div>
     </aside>
   );
@@ -83,7 +61,7 @@ const sidebarStyle = {
   position: "fixed",
   top: 0,
   left: 0,
-  backgroundColor: "#12162eff",
+  backgroundColor: "#12162e",
   color: "#fff",
   display: "flex",
   flexDirection: "column",

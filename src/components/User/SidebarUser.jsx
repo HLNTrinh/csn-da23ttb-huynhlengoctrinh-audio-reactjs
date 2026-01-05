@@ -10,9 +10,8 @@ export default function UserSidebar() {
   const location = useLocation();
 
   const menus = [
-    { name: "Trang chủ", icon: <AiOutlineHome />, path: "/user" },
+    { name: "Home", icon: <AiOutlineHome />, path: "/user" },
     { name: "Khám phá", icon: <FiTrendingUp />, path: "/user/explore" },
-    { name: "Album", icon: <MdAlbum />, path: "/user/album" },
     { name: "Thư viện", icon: <MdLibraryMusic />, path: "/user/library" },
     { name: "BXH nhạc mới", icon: <PiMusicNotesPlusBold />, path: "/user/new" },
     { name: "Top 100", icon: <MdOutlineStarOutline />, path: "/user/top" },

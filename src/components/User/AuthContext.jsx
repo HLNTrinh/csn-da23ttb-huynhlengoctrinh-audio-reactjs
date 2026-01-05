@@ -1,20 +1,23 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-
-  // load user từ localStorage
-  useEffect(() => {
+  const [user, setUser] = useState(() => {
     const saved = localStorage.getItem("user");
-    if (saved) setUser(JSON.parse(saved));
+    return saved ? JSON.parse(saved) : null;
+  });
+
+  const [loading, setLoading] = useState(true);
+
+  // Đồng bộ lần đầu
+  useEffect(() => {
+    setLoading(false);
   }, []);
 
-  const login = (username) => {
-    const data = { username };
-    setUser(data);
-    localStorage.setItem("user", JSON.stringify(data));
+  const login = (userData) => {
+    setUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData));
   };
 
   const logout = () => {
@@ -23,12 +26,24 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        isAuthenticated: !!user,
+        login,
+        logout,
+        loading,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 }
 
 export function useAuth() {
-  return useContext(AuthContext);
+  const ctx = useContext(AuthContext);
+  if (!ctx) {
+    throw new Error("useAuth phải được dùng trong AuthProvider");
+  }
+  return ctx;
 }

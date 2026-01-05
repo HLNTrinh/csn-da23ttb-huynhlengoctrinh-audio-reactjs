@@ -5,24 +5,21 @@ import Navbar from "./admin/AdminNavbar.jsx";
 import Dashboard from "./admin/Dashboard.jsx";
 
 export default function AdminPage() {
-  const navigate = useNavigate();
-  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
-
+   const navigate = useNavigate();
+  const currentUser = JSON.parse(
+    localStorage.getItem("currentUser") || "null"
+  );
   if (!currentUser || currentUser.role !== "admin") {
-    alert("Chỉ admin mới truy cập được!");
-    return <Navigate to="/" />;
+    return <Navigate to="/" replace />;
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem("currentUser");
-    navigate("/");
-  };
+  
 
   const styles = {
   container: {
     display: "flex",
     height: "100vh",
-    background: "#f5f5f5",
+    
   },
   sidebar: {
     width: "240px",
@@ -30,7 +27,7 @@ export default function AdminPage() {
     position: "fixed",
     top: 0,
     left: 0,
-    color: "#fff",
+   
     display: "flex",
     flexDirection: "column",
     boxSizing: "border-box",
@@ -51,6 +48,15 @@ export default function AdminPage() {
     flex: 1,
     padding: "20px", // nếu muốn có padding
   },
+   navbar: {
+  width: "calc(100% - 2px)",
+  height: "100px",
+  position: "sticky",
+  top: 0,
+  padding: "0px",
+  zIndex: 10,
+  
+}
 };
 
   return (
@@ -59,7 +65,9 @@ export default function AdminPage() {
         <AdminSidebar />
       </div>
       <div style={styles.mainContent}>
-        <Navbar />
+         <div style={styles.navbar}>
+                               <Navbar />
+                             </div>
         <div style={styles.dashboard}>
           <Dashboard />
         </div>

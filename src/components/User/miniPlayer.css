@@ -67,3 +67,93 @@
  
  
 }
+
+.mini-img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.mini-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.mini-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn {
+   background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mini-bottom {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+}
+
+.mini-menu-wrapper {
+  position: relative;
+}
+.mini-menu {
+  position: absolute;
+  bottom: 60px;
+  right: 20;
+
+  display: flex;              /* ✅ BẮT BUỘC */
+  flex-direction: column;     /* xếp dọc */
+  gap: 0px;                   /* ✅ KHOẢNG CÁCH GIỮA CÁC DÒNG */
+  padding: 8px 0;
+  background: #1e1e1e;
+  border-radius: 10px;
+  min-width: 200px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  z-index: 9999;
+}
+
+.mini-menu button,
+.mini-menu a {
+   width: 100%;              /* mỗi nút 1 hàng */
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;              
+
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  
+}
+
+.mini-menu button:hover,
+.mini-menu a:hover {
+  background: #333;
+}
+
+.mini-player.hidden {
+  display: none;
+}
+.element {
+  overflow: scroll; /* hoặc auto */
+  scrollbar-width: none; /* Firefox */
+}
+
+.element::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+

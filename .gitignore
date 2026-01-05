@@ -28,3 +28,5 @@ public/image
 *.png
 *.jpg
 *.webp
+public/audio/
+*.mp3

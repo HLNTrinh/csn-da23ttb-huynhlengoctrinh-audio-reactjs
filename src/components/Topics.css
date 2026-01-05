@@ -1,16 +1,18 @@
 .topics-container {
- max-width:1356px;
- padding:30px
+  max-width: 1356px;
+  padding: 30px;
   color: white;
 }
 
+/* TITLE */
 .topics-title {
- font-size: 28px;
+  font-size: 28px;
   font-weight: bold;
-  textAlign: "left";
-  margin-top: 0px;
+  text-align: left;
+  margin-top: 0;
 }
 
+/* MORE */
 .topics-more {
   color: #ccc;
   cursor: pointer;
@@ -31,8 +33,8 @@
 
 /* CARD */
 .topic-card {
-  width: 195px;
-  height: 98px;
+  width: 100%;
+  aspect-ratio: 195 / 98; /* giữ đúng tỷ lệ */
   border-radius: 15px;
   position: relative;
   overflow: hidden;
@@ -48,24 +50,80 @@
   opacity: 0.9;
 }
 
+/* IMAGE */
 .topic-image {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 195px;
-  height: 98px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   opacity: 0.85;
 }
 
+/* TEXT */
 .topic-name {
   font-size: 20px;
   font-weight: bold;
   z-index: 2;
 }
+
+/* SONG LIST */
 .topic-songs {
   margin-top: 20px;
   background: #222;
   padding: 20px;
   border-radius: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* <= 1400px (Laptop lớn) */
+@media (max-width: 1400px) {
+  .topics-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* <= 1200px (Laptop) */
+@media (max-width: 1200px) {
+  .topics-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* <= 992px (Tablet ngang) */
+@media (max-width: 992px) {
+  .topics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .topic-name {
+    font-size: 18px;
+  }
+}
+
+/* <= 768px (Tablet dọc) */
+@media (max-width: 768px) {
+  .topics-container {
+    padding: 20px;
+  }
+
+  .topics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .topics-title {
+    font-size: 24px;
+  }
+}
+
+/* <= 480px (Mobile) */
+@media (max-width: 480px) {
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topic-name {
+    font-size: 16px;
+  }
 }

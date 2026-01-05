@@ -1,0 +1,143 @@
+/* ===== ADMIN SUGGEST WRAPPER ===== */
+.admin-suggest {
+  background: #ffffff;
+  padding: 28px 32px;
+  border-radius: 12px;
+  width: 100%;
+}
+
+/* TITLE */
+.admin-suggest h2 {
+  margin-bottom: 26px;
+  font-size: 22px;
+  font-weight: 600;
+ 
+}
+
+/* ===== PLAYLIST BLOCK ===== */
+.playlist-block {
+  background: #ffffff;
+  padding: 20px 22px;
+  border-radius: 14px;
+  width: 100%;
+  overflow-x: auto; /* cho bảng dài */
+}
+
+/* ===== TABLE ===== */
+.playlist-block table {
+  width: 100%;
+  min-width: 1200px; /* 👈 bảng dài ra giống ảnh */
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* HEADER */
+.playlist-block thead {
+  background: #fafafa;
+}
+
+.playlist-block th {
+  font-weight: 600;
+  color: #333;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* BODY */
+.playlist-block td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+  color: #444;
+  white-space: nowrap;
+}
+
+/* HOVER */
+.playlist-block tbody tr:hover {
+  background: #f7f7f7;
+}
+
+/* ===== SET WIDTH TỪNG CỘT ===== */
+
+/* # */
+.playlist-block th:nth-child(1),
+.playlist-block td:nth-child(1) {
+  width: 60px;
+  text-align: center;
+}
+
+/* Tên playlist */
+.playlist-block th:nth-child(2),
+.playlist-block td:nth-child(2) {
+  width: 420px;
+  font-weight: 500;
+}
+
+/* Mô tả */
+.playlist-block th:nth-child(3),
+.playlist-block td:nth-child(3) {
+  width: 420px;
+  color: #666;
+}
+
+/* Số bài */
+.playlist-block th:nth-child(4),
+.playlist-block td:nth-child(4) {
+  width: 120px;
+  text-align: center;
+}
+
+/* Hành động */
+.playlist-block th:nth-child(5),
+.playlist-block td:nth-child(5) {
+  width: 180px;
+  text-align: center;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  padding: 7px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.25s;
+}
+
+/* ADD */
+.btn.add {
+  background: #ff4d4f;
+  color: #ffffff;
+}
+
+.btn.add:hover {
+  background: #e63c3f;
+}
+
+/* DELETE */
+.btn.delete {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.btn.delete:hover {
+  background: #d9d9d9;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .admin-suggest {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .playlist-block table {
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 6px 14px;
+  }
+}

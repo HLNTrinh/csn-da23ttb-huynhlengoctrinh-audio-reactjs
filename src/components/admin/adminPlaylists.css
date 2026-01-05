@@ -1,0 +1,79 @@
+.admin-playlists {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.admin-playlists h2 {
+  margin-bottom: 30px;
+  top:20px;
+}
+
+/* FORM */
+.playlist-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.playlist-form input,
+.playlist-form textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.playlist-form textarea {
+  resize: none;
+}
+
+/* BUTTON */
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn.add {
+  background: #22c55e;
+  color: white;
+}
+
+.btn.update {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn.cancel {
+  background: #9ca3af;
+  color: white;
+}
+
+.btn.edit {
+  background: #f59e0b;
+  color: white;
+  margin-right: 6px;
+}
+
+.btn.delete {
+  background: #ef4444;
+  color: white;
+}
+
+/* TABLE */
+.playlist-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.playlist-table th,
+.playlist-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.playlist-table th {
+  background: #f1f5f9;
+  text-align: left;
+}

@@ -1,0 +1,17 @@
+.lyrics-box {
+  text-align: center;
+  padding: 30px;
+}
+
+.lyric-line {
+  color: #777;
+  font-size: 18px;
+  margin: 10px 0;
+  transition: 0.3s;
+}
+
+.lyric-line.active {
+  color: #00d0ff;
+  font-size: 22px;
+  font-weight: bold;
+}

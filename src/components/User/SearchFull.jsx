@@ -19,8 +19,6 @@ export default function SearchFull() {
     { id: "niu-duyen", title: "Níu Duyên", artist: "Lê Bảo Bình" },
     { id: "see-tinh", title: "See Tình", artist: "Hoàng Thuỳ Linh" },
     { id: "waiting-for-you", title: "Waiting For You", artist: "Mono" },
-    { id: "thiep-hong-sai-ten", title: "Thiệp Hồng Sai Tên", artist: "TLong" },
-    { id: "kho-bau", title: "Kho Báu ", artist: "(S)TRONG,Rhymastic" },
     { id: "pin-du-phong", title: "Pin Dự Phòng", artist: "Dương Domic,Lou Hoàng" },
     { id: "khong-buong", title: "Không Buông", artist: "H2K" },
     { id: "nguoi-dau-tien", title: "Người Đầu Tiên", artist: "Juky San,buitruonglinh" },
@@ -35,7 +33,7 @@ export default function SearchFull() {
     { id: "song-8", title: "ĐOẠN KỊCH CÂM", artist: 'ANH TRAI "SAY HI"' },
     { id: "song-9", title: "Anh Sẽ Quên Được Em", artist: "QuocKiet,.." },
     { id: "vn-2", title: "Bỏ Mặc Anh", artist: "Tez,Mason Nguyen"},
-    {id:"vn-3", title: "Qua Vài Câu Chuyện Tình", artist: "GiGi Hương Giang"},
+    {id:"vn-3", title: "You & Me", artist: "JENNIE"},
     { id: "vn-4",  title: "EMGAI", artist: "DI RUMINH"},
     { id: "vn-6",title: "BÍ MẬT NHỎ", artist: 'ANH TRAI "SAY HI",Mason Nguyen'},
     { id: "vn-7", title: "ĐƯỜNG CHÂN TRỜI", artist: 'ANH TRAI "SAY HI",buitruonglinh', },
@@ -51,11 +49,11 @@ export default function SearchFull() {
   ];
 
   const topKey = [
-    "Thiệp Hồng Sai Tên",
+    "See Tình",
     "Pin Dự Phòng",
-    "Anh Trai Say Hi!",
-    "Chẳng phải tình đầu...",
-    "Kho Báu",
+    "VẠN LÝ ĐỘC HÀNH",
+    "BÍ MẬT NHỎ",
+    "Still With You",
   ];
 
   // Kết quả tìm kiếm

@@ -2,7 +2,7 @@
   width:105%;
   overflow: hidden;
   position: relative;
-  margin: 20px 0;
+  
 }
 
 .slider {
@@ -11,7 +11,7 @@
 }
 
 .slider-item {
-  min-width: 200px; /* tùy chỉnh theo ảnh */
+  min-width: 100px; /* tùy chỉnh theo ảnh */
   margin-right: 10px;
   cursor: pointer;
   transition: transform 0.3s;
@@ -24,4 +24,30 @@
 
 .slider-item:hover {
   transform: scale(1.05);
+}
+@media (max-width: 1200px) {
+  .slider-item {
+    width: 140px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .slider-item {
+    width: 120px;
+  }
+}
+
+/* Tablet dọc */
+@media (max-width: 768px) {
+  .slider-item {
+    width: 110px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .slider-item {
+    width: 90px;
+  }
 }

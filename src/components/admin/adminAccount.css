@@ -1,0 +1,76 @@
+.admin-account {
+  padding: 24px;
+  background: "#f5f5f5",
+  min-height: 100vh;
+  color: black;
+}
+
+.admin-account h1 {
+  margin-bottom: 20px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid #333;
+  text-align: center;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.admin-table button {
+  padding: 6px 10px;
+  margin: 2px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.role-btn {
+  background: #1e90ff;
+  color: white;
+}
+
+.danger {
+  background: #ff4f6d;
+  color: white;
+}
+.add-user-form {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.add-user-form input,
+.add-user-form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+}
+
+.add-btn {
+  background: #ec4899;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #db2777;
+}

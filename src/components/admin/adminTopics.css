@@ -1,0 +1,174 @@
+/* ===== CONTAINER ===== */
+.admin-topics {
+  padding: 24px 28px;
+}
+
+.admin-topics h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+/* ===== FORM ===== */
+.topic-form {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 26px;
+}
+
+.topic-form input {
+  flex: 1;
+  min-width: 180px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.topic-form input:focus {
+  border-color: #ec4899;
+  background: #fff;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+  white-space: nowrap;
+}
+
+/* ADD */
+.btn.add {
+  background: #ec4899;
+  color: #fff;
+}
+
+.btn.add:hover {
+  background: #db2777;
+  transform: translateY(-1px);
+}
+
+/* UPDATE */
+.btn.update {
+  background: #10b981;
+  color: #fff;
+}
+
+.btn.update:hover {
+  background: #059669;
+}
+
+/* CANCEL */
+.btn.cancel {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.btn.cancel:hover {
+  background: #d1d5db;
+}
+
+/* EDIT */
+.btn.edit {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.btn.edit:hover {
+  background: #2563eb;
+}
+
+/* DELETE */
+.btn.delete {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn.delete:hover {
+  background: #dc2626;
+}
+
+/* ===== TABLE ===== */
+.topics-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.topics-table thead {
+  background: #f9fafb;
+}
+
+.topics-table th,
+.topics-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.topics-table th {
+  font-weight: 700;
+  color: #111827;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.topics-table td {
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.topics-table tbody tr:hover {
+  background: #fdf2f8;
+}
+
+/* ACTION COLUMN */
+.topics-table td:last-child {
+  display: flex;
+  gap: 8px;
+}
+
+/* EMPTY */
+.topics-table td[colspan] {
+  padding: 30px;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .topic-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .topics-table {
+    font-size: 13px;
+  }
+
+  .topics-table th,
+  .topics-table td {
+    padding: 12px;
+  }
+}

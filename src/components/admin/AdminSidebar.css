@@ -1,59 +1,62 @@
 /* Sidebar */
 .adminsidebar {
-  width: 240px; /* Chiều rộng cố định */
-  height: 100vh; /* full chiều cao màn hình */
-  background: linear-gradient(to bottom, #7f5af0, #ff4f8b);
+  width: 240px;
+  height: 100vh;
+  background: #0f172b;
   color: white;
 
-  flex-shrink: 0;   /* Không cho sidebar bị co lại */
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
-  position: relative;
-  overflow-y: auto; /* Scroll nếu menu dài */
-  gap: 20px;
+  overflow-y: auto;
 }
 
-/* Logo ở trên cùng */
+/* Logo */
 .sidebar-logo {
   font-size: 22px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin: 20px 0 30px;
   text-align: center;
-  color:#7f5af0;
+  color: white;
 }
 
-/* Menu */
+/* Menu container */
 .sidebar-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  flex: 1; /* Chiếm toàn bộ không gian còn lại */
 }
 
-/* Item menu */
+/* NavLink = item */
 .sidebar-item {
+  text-decoration: none;     /* ❗ bỏ gạch chân */
+  color: white;              /* ❗ giữ màu chữ */
   padding: 12px 16px;
   border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 18px;
+  font-size: 16px;
+
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+
+  transition: all 0.2s ease;
 }
 
+/* Icon */
+.menu-icon {
+  font-size: 22px;
+}
+
+/* Hover */
 .sidebar-item:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(6px);
 }
 
-/* Optional: active item */
+/* Active (NavLink tự thêm class active) */
 .sidebar-item.active {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.25);
   font-weight: bold;
 }

@@ -1,53 +1,174 @@
+/* ===== NAVBAR ===== */
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 60px;
   padding: 0 20px;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== RIGHT ===== */
 .navbar-right {
+  margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 0px;
+  gap: 8px; /* 👈 chuông & avatar gần nhau */
 }
 
+/* ===== SEARCH ===== */
+.navbar-search {
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  background: #f1f5f9;
+  border-radius: 20px;
+  padding: 6px 12px;
+  margin: 0 20px;
+}
+
+.navbar-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  padding-left: 8px;
+  font-size: 14px;
+}
+
+.search-icon {
+  color: #64748b;
+  font-size: 18px;
+}
+
+/* ===== NOTIFICATION ===== */
+.notification {
+  position: relative;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Badge số */
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: red;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* Dropdown thông báo */
+.noti-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 260px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 20;
+  overflow: hidden;
+}
+
+.noti-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.noti-item strong {
+  display: block;
+}
+
+.noti-item span {
+  font-size: 12px;
+  color: #888;
+}
+
+.noti-item:last-child {
+  border-bottom: none;
+}
+
+.noti-dropdown .empty {
+  padding: 12px;
+  text-align: center;
+  color: #888;
+}
+
+/* ===== AVATAR ===== */
 .avatar {
   position: relative;
   cursor: pointer;
 }
 
 .avatar-img {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
+/* ===== DROPDOWN AVATAR ===== */
 .dropdown {
- position: absolute;
-  top: 50px;
+  position: absolute;
+  top: 45px;
   right: 0;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  background: white;
+  border-radius: 8px;
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 20;
   overflow: hidden;
-  z-index: 10;
-  min-width: 120px; /* đặt tối thiểu để rộng hơn avatar */
-  padding: 5px 0;   /* khoảng cách trên/dưới */
-  white-space: nowrap; /* tránh xuống dòng */
 }
 
-.logout-btn {
-  padding: 10px 20px;
+/* Header dropdown */
+.dropdown-header {
+  padding: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-header span {
+  display: block;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Item */
+.dropdown-item {
   width: 100%;
+  padding: 10px 12px;
   border: none;
   background: white;
   cursor: pointer;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
 }
 
-.logout-btn:hover {
-  background: #f0f0f0;
+.dropdown-item:hover {
+  background: #f1f5f9;
+}
+
+.dropdown-item.logout {
+  color: #dc2626;
+}
+.view-all {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #f9fafb;
+  color: #ec4899;
+  font-weight: 600;
+  cursor: pointer;
+  border-top: 1px solid #e5e7eb;
+}
+
+.view-all:hover {
+  background: #fdf2f8;
 }

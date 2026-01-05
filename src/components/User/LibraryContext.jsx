@@ -1,29 +1,17 @@
-import { createContext, useContext, useState, useEffect } from "react";
-
-const LibraryContext = createContext();
-
-export function LibraryProvider({ children }) {
-  const [library, setLibrary] = useState([]);
-
-  // load từ localStorage
-  useEffect(() => {
-    const saved = localStorage.getItem("library");
-    if (saved) setLibrary(JSON.parse(saved));
-  }, []);
+export const LibraryProvider = ({ children }) => {
+  const [librarySongs, setLibrarySongs] = useState([]);
 
   const addToLibrary = (song) => {
-    const updated = [...library, song];
-    setLibrary(updated);
-    localStorage.setItem("library", JSON.stringify(updated));
+    const exists = librarySongs.some((s) => s.id === song.id);
+    if (exists) return;
+    const updated = [...librarySongs, song];
+    setLibrarySongs(updated);
+    localStorage.setItem("librarySongs", JSON.stringify(updated));
   };
 
   return (
-    <LibraryContext.Provider value={{ library, addToLibrary }}>
+    <LibraryContext.Provider value={{ librarySongs, addToLibrary }}>
       {children}
     </LibraryContext.Provider>
   );
-}
-
-export function useLibrary() {
-  return useContext(LibraryContext);
-}
+};
